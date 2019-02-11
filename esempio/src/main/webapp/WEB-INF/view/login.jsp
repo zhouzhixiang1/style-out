@@ -9,7 +9,6 @@
 
 </head>
 <body style="margin: 50px;">
-<h2>${ variabile }</h2>
 <span>${ errore }</span>
 <form id="formLogin" action="loginUtente" method="post">
 	<div class="form-group">
