@@ -22,7 +22,7 @@
 	</div>
 	<button type="submit" class="btn btn-primary" id="btnLogin">login</button>
   </form>
-  	<button id="btnRegistrazione" class="btn btn-primary" onclick="location.href='registrazione'">registrazione</button>
+  	<button id="btnReg" class="btn btn-primary" onclick="location.href='registrazione'">registrazione</button>
   
 <span id="esitoOperazione"></span>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
