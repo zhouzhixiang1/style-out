@@ -13,7 +13,8 @@
 	<span id="log">ciao ${ utenteLoggato.nome } sei loggato</span>
 	<span id="log">abiti a ${ utenteLoggato.residenza } </span>
 	<button id="btnLogout" onclick="location.href='logoutUtente'">LOGOUT</button>
-
+  
+  
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script type="text/javascript">
 	</script>
