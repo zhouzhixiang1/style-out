@@ -36,6 +36,7 @@ public class UtenteController {
 		Utente u1 = new Utente();
 		Utente u2 = new Utente();
 		u1.setMail(mailUtente);
+		
 		u1.setPassword(passwordUtente);
 		u2 = UtenteManager.loginUtente(u1);
 		ModelAndView mv = new ModelAndView();
