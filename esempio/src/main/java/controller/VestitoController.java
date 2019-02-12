@@ -13,10 +13,11 @@ import model.Vestito;
 public class VestitoController {
 	
 	@RequestMapping(value="/aggiungiVestito", method=RequestMethod.POST)
-	public ModelAndView aggiungiUtente(@RequestParam(value = "disponibilita", required = false) String disponibilita,String coloreVestito , String tessutoVestito) { // il nome del metodo è irrilevante
+	public ModelAndView aggiungiVestito(@RequestParam(value = "disponibilita", required = false) String disponibilita,String coloreVestito , String tessutoVestito) { // il nome del metodo è irrilevante
 		Vestito v = new Vestito();
 		v.setColore(coloreVestito);
 		v.setTessuto(tessutoVestito);
+		Boolean esito;
 		if(disponibilita==null) {
 			v.setDisponibile(false);
 			
@@ -24,9 +25,9 @@ public class VestitoController {
 			v.setDisponibile(true);
 		}
 		System.out.println(v.getColore() + v.getTessuto());
-		VestitoManager.aggiungiVestito(v);
+		esito = VestitoManager.aggiungiVestito(v);
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("esito", "done");
+		mv.addObject("esito", esito);
 		mv.setViewName("esito");
 		return mv;
 	}

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
      <%@ page session="true"  %>
+     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,14 +34,19 @@
 		<label class="form-check-label" for="inlineRadio1">disponibile</label>
 	</div>
 		<br><br><br>
-		<button type="submit" class="btn btn-primary" id="btnAggiungi">aggiungi</button>
+		<button type="submit" class="btn btn-primary" id="btnAggiungiVestito" name="btnAggiungiVestito">aggiungi</button>	
   	</form>
-  	<span id="esitoOperazione">${ esito }</span>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<br>
+  	<span id="esitoOperazione" class="badge badge-pill badge-info">esito : </span>
+  	<span ></span>
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+  	
 	<script type="text/javascript">
 	</script>
 	<script type="text/javascript">
-	$('#btnAggiungi').click((e) => {
+	$('#btnAggiungiVestito').click((e) => {
 		e.preventDefault();
 		$.ajax({
 			url: 'aggiungiVestito',
@@ -48,7 +54,7 @@
 			data: $('#formInserimentoVestito').serialize()
 		})
 		.done((risultato) => {
-			$('#esitoOperazione').text(risultato);
+			$('#esitoOperazione').append(risultato);
 			console.log(risultato);
 		});
 	});
