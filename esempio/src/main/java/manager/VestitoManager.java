@@ -1,5 +1,18 @@
 package manager;
 
-public class VestitoManager {
+import javax.persistence.EntityManager;
 
+import model.Vestito;
+import utility.NuovoEntityManager;
+
+public class VestitoManager {
+	public static void aggiungiVestito(Vestito v) {
+		EntityManager em = NuovoEntityManager.creaEm();
+		Vestito vdb = em.find(Vestito.class, v.getIdVestito());
+		if (vdb == null) {
+			em.getTransaction().begin();
+			em.persist(v);
+			em.getTransaction().commit();
+		} 
+	}
 }
