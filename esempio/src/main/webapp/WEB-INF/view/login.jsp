@@ -9,7 +9,7 @@
 
 </head>
 <body style="margin: 50px;">
-<span>${ errore }</span>
+<span><h4>LOGIN</h4></span>
 <form id="formLogin" action="loginUtente" method="post">
 	<div class="form-group">
 		<label for="mailUtente">Mail</label>
@@ -21,6 +21,9 @@
 	</div>
 	<button type="submit" class="btn btn-primary" id="btnLogin">login</button>
   </form>
+  <br>
+  <span id="esitoOperazione" class="badge badge-pill badge-info">esito : ${ errore }</span>
+  <br><br>
   	<button id="btnReg" class="btn btn-primary" onclick="location.href='registrazione'">registrazione</button>
   
   

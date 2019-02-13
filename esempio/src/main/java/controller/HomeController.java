@@ -28,5 +28,11 @@ public class HomeController {
 		mv.setViewName("login");
 		return mv;
 	}
+	@RequestMapping(value="/inserimentoVestito", method=RequestMethod.GET)
+	public ModelAndView inserimentoVestito() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("inserimentoVestito");
+		return mv;
+	}
 
 }

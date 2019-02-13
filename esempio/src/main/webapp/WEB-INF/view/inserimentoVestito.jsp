@@ -58,7 +58,7 @@
 	
 	  <div class="row">
 	    <div class="col-sm">
-	     <h4 style="text-transform: uppercase;">profilo di ${ utenteLoggato.nome }</h4>
+	     <h4>INSERIMENTO VESTITO</h4>
 	    </div>
 	    <div class="col-sm">
 	    </div>
@@ -68,16 +68,22 @@
 	    
 	  <div class="row">
 	    <div class="col-sm">
-	    <br>
-	   		residenza : <mark>${ utenteLoggato.residenza }</mark>
-	   		<br><br>
-	   		mail : <mark>${ utenteLoggato.mail }</mark>
-	   		<br><br>
-	   		password : <mark>${ utenteLoggato.password }</mark>
-	   		<br><br>
-	   		nome : <mark>${ utenteLoggato.nome }</mark>
-	   		<br><br>
-	   		cognome : <mark>${ utenteLoggato.cognome }</mark>
+	   	<form id="formInserimentoVestito">
+			<div class="form-group">
+			  <label for="nomeUtente">colore</label>
+			  <input type="text" class="form-control" id="coloreVestito" name="coloreVestito" aria-describedby="emailHelp" placeholder="inserisci colore">
+			</div>
+			<div class="form-group">
+				<label for="cognomeUtente">tessuto</label>
+				<input type="text" class="form-control" id="tessutoVestito" name="tessutoVestito" aria-describedby="emailHelp" placeholder="inserisci tessuto">
+			</div>
+		
+			<div class="form-check form-check-inline">
+				<input class="form-check-input" type="checkbox"
+					name="disponibilita" id="disponibilita" value="disponibile">
+				<label class="form-check-label" for="inlineRadio1">disponibile</label>
+			</div>
+  		</form>
 	    </div>
 	    <div class="col-sm">
 	    	
@@ -86,6 +92,16 @@
 	    </div>
 	  </div>
 	  <br>
+	  <div class="row">
+	    <div class="col-sm">
+	    	<button type="submit" class="btn btn-primary" id="btnAggiungiVestito" name="btnAggiungiVestito">aggiungi</button>	
+	    </div>
+	    <div class="col-sm">
+	    </div>
+	    <div class="col-sm">
+	     <span id="esitoOperazione" class="badge badge-pill badge-info">esito : </span>
+	    </div>
+	  </div>
 	</div>
 
   	<br>
