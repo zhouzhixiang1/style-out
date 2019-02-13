@@ -36,6 +36,7 @@
 		<br><br><br>
 		<button type="submit" class="btn btn-primary" id="btnAggiungiVestito" name="btnAggiungiVestito">aggiungi</button>	
   	</form>
+  	<button type="submit" class="btn btn-primary" id="btnAggiungiVestito" name="btnAggiungiVestito">aggiunfagi</button>
   	<br>
   	<span id="esitoOperazione" class="badge badge-pill badge-info">esito : </span>
   	<span ></span>
