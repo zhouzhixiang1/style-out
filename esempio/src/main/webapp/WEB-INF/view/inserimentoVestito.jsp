@@ -11,7 +11,7 @@
 <title> utenteLoggato </title>
 </head>
 <body style="margin: 50px; padding-top: 30px;">
-	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
 	  <a class="navbar-brand" href="#">StyleOut</a>
 	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
@@ -19,18 +19,48 @@
 	  <div class="collapse navbar-collapse" id="navbarNavDropdown">
 	    <ul class="navbar-nav">
 	      <li class="nav-item">
+	      <c:if test="${ utenteLoggato == null}">
 	        <a class="nav-link" href="login">Login</a>
+	       </c:if>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href="registrazione">Registrazione</a>
+	      <c:choose>
+	      	<c:when test="${ utenteLoggato == null}">
+	      		<a class="nav-link" href="registrazione">Registrazione</a>
+	      	</c:when>
+	      	<c:when test="${ utenteLoggato.mail == 'simo@simo'}">
+	      		<span style="color: blue;">admin</span>
+	      	</c:when>
+	      	<c:otherwise>
+	      		user
+	      	</c:otherwise>
+	      </c:choose>
+	        
 	      </li>
 	     </ul>
 	      <c:choose>
-		    <c:when test="${ utenteLoggato != null}">
-		    
+		    <c:when test="${ utenteLoggato != null}">  
 		        <ul class="navbar-nav" style="position: absolute; left: 40%;">
 					<li class="nav-item">
-				    	<a class="nav-link" href="inserimentoVestito">inserimento vestito</a>
+					<c:choose>
+						<c:when test="${ utenteLoggato.mail == 'simo@simo'}">
+						  <li class="nav-item dropdown">
+					        <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					          testa web-app
+					        </a>
+					        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+					          <a class="dropdown-item" href="inserimentoVestito">inserimento Vestito</a>
+					          <div class="dropdown-divider"></div>
+					        </div>
+					      </li>
+							</li>
+							<li>
+							<a class="nav-link" href="">controllo Utenza</a>
+						</c:when>
+						<c:otherwise>
+							<a class="nav-link" href="inserimentoVestito">il mio armadio</a>
+						</c:otherwise>
+					</c:choose>
 				    </li>
 		    	</ul>
 		    	<ul class="navbar-nav ml-auto">

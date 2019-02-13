@@ -19,18 +19,48 @@
 	  <div class="collapse navbar-collapse" id="navbarNavDropdown">
 	    <ul class="navbar-nav">
 	      <li class="nav-item">
+	      <c:if test="${ utenteLoggato == null}">
 	        <a class="nav-link" href="login">Login</a>
+	       </c:if>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href="registrazione">Registrazione</a>
+	      <c:choose>
+	      	<c:when test="${ utenteLoggato == null}">
+	      		<a class="nav-link" href="registrazione">Registrazione</a>
+	      	</c:when>
+	      	<c:when test="${ utenteLoggato.mail == 'simo@simo'}">
+	      		<span style="color: blue;">admin</span>
+	      	</c:when>
+	      	<c:otherwise>
+	      		user
+	      	</c:otherwise>
+	      </c:choose>
+	        
 	      </li>
 	     </ul>
 	      <c:choose>
-		    <c:when test="${ utenteLoggato != null}">
-		    
+		    <c:when test="${ utenteLoggato != null}">  
 		        <ul class="navbar-nav" style="position: absolute; left: 40%;">
 					<li class="nav-item">
-				    	<a class="nav-link" href="inserimentoVestito">inserimento vestito</a>
+					<c:choose>
+						<c:when test="${ utenteLoggato.mail == 'simo@simo'}">
+						  <li class="nav-item dropdown">
+					        <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					          testa web-app
+					        </a>
+					        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+					          <a class="dropdown-item" href="inserimentoVestito">inserimento Vestito</a>
+					          <div class="dropdown-divider"></div>
+					        </div>
+					      </li>
+							</li>
+							<li>
+							<a class="nav-link" href="">controllo Utenza</a>
+						</c:when>
+						<c:otherwise>
+							<a class="nav-link" href="inserimentoVestito">il mio armadio</a>
+						</c:otherwise>
+					</c:choose>
 				    </li>
 		    	</ul>
 		    	<ul class="navbar-nav ml-auto">
@@ -95,27 +125,5 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
   	
-	<script type="text/javascript">
-	</script>
-	<script type="text/javascript">
-	$('#btnAggiungiVestito').click((e) => {
-		e.preventDefault();
-		$.ajax({
-			url: 'aggiungiVestito',
-			method: 'post',
-			data: $('#formInserimentoVestito').serialize()
-		})
-		.done((risultato) => {
-				$('#esitoOperazione').append(risultato);
-			function resettaTestoEsito(){
-					$('#esitoOperazione').text("esito : ");
-					$('#coloreVestito').val('');
-					$('#tessutoVestito').val('');
-				}
-			setTimeout(resettaTestoEsito, 2500);
-			console.log(risultato);
-		});
-	});
-	</script>
 </body>
 </html>
