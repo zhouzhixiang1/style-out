@@ -41,27 +41,35 @@
 	      <c:choose>
 		    <c:when test="${ utenteLoggato != null}">  
 		        <ul class="navbar-nav" style="position: absolute; left: 40%;">
-					<li class="nav-item">
+						
 					<c:choose>
 						<c:when test="${ utenteLoggato.mail == 'simo@simo'}">
 						  <li class="nav-item dropdown">
 					        <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					          testa web-app
 					        </a>
-					        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-					          <a class="dropdown-item" href="inserimentoVestito">inserimento Vestito</a>
-					          <div class="dropdown-divider"></div>
-					        </div>
+						        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						          	<a class="dropdown-item" href="inserimentoVestito">inserimento Vestito</a>
+						       		<div class="dropdown-divider"></div>
+					        	</div>
 					      </li>
-							</li>
-							<li>
-							<a class="nav-link" href="">controllo Utenza</a>
+							<li class="nav-item">
+								<a class="nav-link"  href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">controllo Utenza</a>
+					 		</li>
 						</c:when>
 						<c:otherwise>
-							<a class="nav-link" href="inserimentoVestito">il mio armadio</a>
+							<a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					          il mio armadio
+					        </a>
+							<li class="nav-item">
+						        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<a class="dropdown-item" href="inserimentoVestito">inserimento Vestito</a>
+									<div class="dropdown-divider"></div>
+									<a class="dropdown-item" href="stampaVestiti">elenco Vestiti</a>
+								</div>
+							</li>
 						</c:otherwise>
-					</c:choose>
-				    </li>
+					</c:choose>	   
 		    	</ul>
 		    	<ul class="navbar-nav ml-auto">
 					<li class="nav-item" ">

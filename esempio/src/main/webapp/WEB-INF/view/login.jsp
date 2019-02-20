@@ -18,9 +18,7 @@
 	  </button>
 	  <div class="collapse navbar-collapse" id="navbarNavDropdown">
 	    <ul class="navbar-nav">
-	      <li class="nav-item">
-	        <a class="nav-link" href="login">Login</a>
-	      </li>
+	 
 	      <li class="nav-item">
 	        <a class="nav-link" href="registrazione">Registrazione</a>
 	      </li>
@@ -36,8 +34,8 @@
 	     	 </c:when>
 	      	<c:otherwise>
 	      		<ul class="navbar-nav ml-auto">
-					<li class="nav-item" ">
-				    	<a class="nav-link" href="login">effettua login</a>
+					<li class="nav-item" >
+				    	<a class="nav-link" href="login">login non effettuato</a>
 				    </li>
 		    	</ul>
 	      	</c:otherwise>

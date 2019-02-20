@@ -34,5 +34,11 @@ public class HomeController {
 		mv.setViewName("inserimentoVestito");
 		return mv;
 	}
+	@RequestMapping(value="/stampaVestiti", method=RequestMethod.GET)
+	public ModelAndView stampaVestiti() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("stampaVestiti");
+		return mv;
+	}
 
 }

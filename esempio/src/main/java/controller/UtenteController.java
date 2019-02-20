@@ -25,9 +25,9 @@ public class UtenteController {
 		ut.setMail(mailUtente);
 		ut.setPassword(passwordUtente);
 		ut.setResidenza(residenzaUtente);
-		UtenteManager.aggiungiUtente(ut);
+		Boolean esito = UtenteManager.aggiungiUtente(ut);
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("esito", "done,");
+		mv.addObject("esito", esito);
 		mv.setViewName("esito");
 		return mv;
 	}

@@ -6,34 +6,30 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import model.Utente;
+import utility.CercaDaId;
+import utility.CercaUtenteConMailandPassword;
 import utility.NuovoEntityManager;
 
 public class UtenteManager {
 
-	public static void aggiungiUtente(Utente u) {
-		EntityManager em = NuovoEntityManager.creaEm();
-		Utente udb = em.find(Utente.class, u.getIdUtente());
-		if (udb == null) {
-			em.getTransaction().begin();
-			em.persist(u);
-			em.getTransaction().commit();
-		} 
+	public static boolean aggiungiUtente(Utente u) {
+		Utente uTrovato = CercaDaId.cerca(u);
+		if (uTrovato == null) {
+			CercaDaId.inserisci(u);
+			return true;
+		} else
+			return false;
 	}
+
 	public static void eliminaUtente(Utente u) {
-		EntityManager em = NuovoEntityManager.creaEm();
-		Utente udb = em.find(Utente.class, u.getIdUtente());
-		if (udb != null) {
-			em.getTransaction().begin();
-			em.remove(u);
-			em.getTransaction().commit();
-		} 
+			Boolean esito = CercaUtenteConMailandPassword.elimina(u);
+			System.out.println(esito);
 	}
+	
+	
+	
 	public static Utente loginUtente(Utente u) {
-		EntityManager em = NuovoEntityManager.creaEm();
-		Query q = em.createNamedQuery("Utente.FindByMailAndPassword",Utente.class)
-		.setParameter("mail",u.getMail())
-		.setParameter("password",u.getPassword());
-		List<Utente> l =  q.getResultList();
+		List<Utente> l = CercaUtenteConMailandPassword.cerca(u);
 		if(l.isEmpty())
 			return null;
 		else

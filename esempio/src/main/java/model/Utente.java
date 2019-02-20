@@ -1,11 +1,15 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
 import org.hibernate.annotations.NamedQueries;
 import org.hibernate.annotations.NamedQuery;
 @NamedQueries({
@@ -17,12 +21,15 @@ public class Utente {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int idUtente;
+	
 	private String nome;
 	private String cognome;
 	private Date dataNascita;
 	private String residenza;
 	private String mail;
 	private String password;
+	@OneToMany(mappedBy="utente",orphanRemoval = true)
+	private List<Vestito> vestiti;
 	public int getIdUtente() {
 		return idUtente;
 	}
@@ -64,6 +71,12 @@ public class Utente {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public List<Vestito> getVestiti() {
+		return vestiti;
+	}
+	public void setVestiti(List<Vestito> vestiti) {
+		this.vestiti = vestiti;
 	}
 	
 	

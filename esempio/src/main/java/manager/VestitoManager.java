@@ -1,7 +1,11 @@
 package manager;
 
-import javax.persistence.EntityManager;
+import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
+
+import model.Utente;
 import model.Vestito;
 import utility.NuovoEntityManager;
 
@@ -17,4 +21,11 @@ public class VestitoManager {
 		} else
 			return false;
 	}
+
+	public static List<Vestito> elencoVestiti() {
+		EntityManager em = NuovoEntityManager.creaEm();
+		Query q = em.createNamedQuery("Vestito.ElencoVestiti_tutti",Vestito.class);
+		return q.getResultList();
+	}
+	
 }

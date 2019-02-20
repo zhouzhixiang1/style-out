@@ -19,28 +19,14 @@
 	      <li class="nav-item">
 	        <a class="nav-link" href="login">Login</a>
 	      </li>
-	      <li class="nav-item">
-	        <a class="nav-link" href="registrazione">Registrazione</a>
-	      </li>
-	     </ul>
-	      <c:choose>
-		    <c:when test="${ utenteLoggato != null}">
-		    
-		        <ul class="navbar-nav" style="position: absolute; left: 40%;">
-					<li class="nav-item">
-				    	<a class="nav-link" href="inserimentoVestito">inserimento vestito</a>
-				    </li>
-		    	</ul>
-	     	 </c:when>
-	      	<c:otherwise>
-	      		<ul class="navbar-nav ml-auto">
-					<li class="nav-item" ">
-				    	<a class="nav-link" href="login">effettua login</a>
-				    </li>
-		    	</ul>
-	      	</c:otherwise>
-	      </c:choose>
-	  </div>
+	       </ul>
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item""><a class="nav-link" href="login">login
+						non effettuato</a></li>
+			</ul>
+
+
+		</div>
 	</nav>
 
 
@@ -95,7 +81,7 @@
 	    <div class="col-sm">
 	    </div>
 	    <div class="col-sm">
-	    	<span id="esitoOperazione"></span>
+	    	<span id="esitoOperazione" class="badge badge-pill badge-info">esito : </span>
 	    </div>
 	  </div> 
 </div>
@@ -112,21 +98,11 @@
 			data: $('#formRegistrazione').serialize()
 		})
 		.done((risultato) => {
-			$('#esitoOperazione').text(risultato);
+			$('#esitoOperazione').append(risultato);
 			console.log(risultato);
 		});
 	});
-	$('#btnLista').click(() => {
-		$.ajax({
-			url: 'elencoPersone',
-			method: 'get'
-		})
-		.done((persone) => {
-			persone.forEach((p) => {
-				$('#ulPersone').append('<li>' + p.nome + ' ' + p.cognome + '</li>')
-			});
-		});
-	});
+	
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
