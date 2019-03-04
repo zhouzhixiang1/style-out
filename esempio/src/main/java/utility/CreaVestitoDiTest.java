@@ -11,8 +11,7 @@ public class CreaVestitoDiTest {
 		v.setColore("rosso");
 		v.setDisponibile(true);
 		v.setTessuto("cotone");
-		v.setUtente(u);
-		//v.setUtente(utente);
+		v.setUtente(u);	
 		return v;
 	}
 	public static Vestito creaMaglia2(Utente u) {
@@ -20,11 +19,15 @@ public class CreaVestitoDiTest {
 		v.setColore("verde");
 		v.setDisponibile(false);
 		v.setTessuto("lana");
-//		v.setUtente(u);
+		v.setUtente(u);
 		return v;
 	}
-	public static List<Vestito> popolaDatabase() {
+	public static List<Vestito> popolaDatabase(Utente u) {
 		
-		return PopolamentoDatabase.creaVestiti();
+		List<Vestito> v = PopolamentoDatabase.creaVestiti();
+		for (Vestito vestito : v) {
+			vestito.setUtente(u);
+		}
+		return v;
 	}
 }

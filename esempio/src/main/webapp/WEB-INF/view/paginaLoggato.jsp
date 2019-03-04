@@ -28,7 +28,7 @@
 	      	<c:when test="${ utenteLoggato == null}">
 	      		<a class="nav-link" href="registrazione">Registrazione</a>
 	      	</c:when>
-	      	<c:when test="${ utenteLoggato.mail == 'simo@simo'}">
+	      	<c:when test="${ utenteLoggato.mail == 'admin@gmail.com'}">
 	      		<span style="color: blue;">admin</span>
 	      	</c:when>
 	      	<c:otherwise>
@@ -43,7 +43,7 @@
 		        <ul class="navbar-nav" style="position: absolute; left: 40%;">
 						
 					<c:choose>
-						<c:when test="${ utenteLoggato.mail == 'simo@simo'}">
+						<c:when test="${ utenteLoggato.mail == 'admin@gmail.com'}">
 						  <li class="nav-item dropdown">
 					        <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					          testa web-app
@@ -111,7 +111,7 @@
 	   		<br><br>
 	   		mail : <mark>${ utenteLoggato.mail }</mark>
 	   		<br><br>
-	   		password : <mark>${ utenteLoggato.password }</mark>
+	   		password : <mark>${ utenteLoggato.passwordUtente }</mark>
 	   		<br><br>
 	   		nome : <mark>${ utenteLoggato.nome }</mark>
 	   		<br><br>

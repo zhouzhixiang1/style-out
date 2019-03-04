@@ -23,7 +23,7 @@ public class UtenteController {
 		ut.setNome(nomeUtente);
 		ut.setCognome(cognomeUtente);
 		ut.setMail(mailUtente);
-		ut.setPassword(passwordUtente);
+		ut.setPasswordUtente(passwordUtente);
 		ut.setResidenza(residenzaUtente);
 		Boolean esito = UtenteManager.aggiungiUtente(ut);
 		ModelAndView mv = new ModelAndView();
@@ -36,7 +36,7 @@ public class UtenteController {
 		Utente u1 = new Utente();
 		Utente u2 = new Utente();
 		u1.setMail(mailUtente);
-		u1.setPassword(passwordUtente);
+		u1.setPasswordUtente(passwordUtente);
 		u2 = UtenteManager.loginUtente(u1);
 		ModelAndView mv = new ModelAndView();
 		if(u2==null) {	

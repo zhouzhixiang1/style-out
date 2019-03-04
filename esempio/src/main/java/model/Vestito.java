@@ -10,6 +10,7 @@ import javax.persistence.ManyToOne;
 import org.hibernate.annotations.NamedQueries;
 import org.hibernate.annotations.NamedQuery;
 @NamedQueries({
+	@NamedQuery(name="Vestito.ElencoVestiti_daId", query="SELECT v FROM Vestito v WHERE v.utente =:idUtente"),
 	@NamedQuery(name="Vestito.ElencoVestiti_tutti", query="SELECT v FROM Vestito v"),
 })
 @Entity
@@ -20,25 +21,12 @@ public class Vestito {
 	private int idVestito;
 	
 	private String colore;
-	private String tessuto;
-	private boolean disponibile;
-	@ManyToOne
-	@JoinColumn(name="id_utente")
-	private Utente utente;
-	
-	public Utente getUtente() {
-		return utente;
-	}
-	public void setUtente(Utente utente) {
-		this.utente = utente;
+	public int getIdVestito() {
+		return idVestito;
 	}
 	public void setIdVestito(int idVestito) {
 		this.idVestito = idVestito;
 	}
-	public int getIdVestito() {
-		return idVestito;
-	}
-
 	public String getColore() {
 		return colore;
 	}
@@ -51,10 +39,23 @@ public class Vestito {
 	public void setTessuto(String tessuto) {
 		this.tessuto = tessuto;
 	}
-	public boolean getDisponibile() {
+	public boolean isDisponibile() {
 		return disponibile;
 	}
-	public void setDisponibile(boolean b) {
-		this.disponibile = b;
+	public void setDisponibile(boolean disponibile) {
+		this.disponibile = disponibile;
 	}
+	public Utente getUtente() {
+		return utente;
+	}
+	public void setUtente(Utente utente) {
+		this.utente = utente;
+	}
+	private String tessuto;
+	private boolean disponibile;
+	@ManyToOne
+	@JoinColumn(name="id_utente")
+	private Utente utente;
+	
+
 }

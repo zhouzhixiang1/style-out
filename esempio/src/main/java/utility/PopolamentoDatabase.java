@@ -3,6 +3,7 @@ package utility;
 import java.util.ArrayList;
 import java.util.List;
 
+import manager.VestitoManager;
 import model.Utente;
 import model.Vestito;
 
@@ -16,7 +17,8 @@ public class PopolamentoDatabase {
 	static List<String> colori = new ArrayList<String>();
 	static List<String> tessuti = new ArrayList<String>();
 	static List<Vestito> vestiti = new ArrayList<Vestito>();
-	public static List<String>  creaNomi() {
+
+	public static List<String> creaNomi() {
 		nomi.clear();
 		nomi.add("stefano");
 		nomi.add("giacomo");
@@ -30,7 +32,8 @@ public class PopolamentoDatabase {
 		nomi.add("kevin");
 		return nomi;
 	}
-	public static List<String>  creaCognomi() {
+
+	public static List<String> creaCognomi() {
 		cognomi.clear();
 		cognomi.add("colonna");
 		cognomi.add("apolo");
@@ -44,7 +47,8 @@ public class PopolamentoDatabase {
 		cognomi.add("mortelliti");
 		return cognomi;
 	}
-	public static List<String>  creaMail() {
+
+	public static List<String> creaMail() {
 		mail.clear();
 		mail.add("colonna@gmail.com");
 		mail.add("apolo@gmail.com");
@@ -58,14 +62,16 @@ public class PopolamentoDatabase {
 		mail.add("mortelliti@gmail.com");
 		return mail;
 	}
-	public static List<String>  creaPassword() {
+
+	public static List<String> creaPassword() {
 		password.clear();
-		for(int i = 0 ; i<10 ; i++) {
+		for (int i = 0; i < 10; i++) {
 			password.add("pw");
 		}
 		return password;
 	}
-	public static List<String>  creaResidenza() {
+
+	public static List<String> creaResidenza() {
 		residenza.clear();
 		residenza.add("milano");
 		residenza.add("roma");
@@ -79,7 +85,8 @@ public class PopolamentoDatabase {
 		residenza.add("teramo");
 		return residenza;
 	}
-	public static List<String>  creaColori() {
+
+	public static List<String> creaColori() {
 		colori.clear();
 		colori.add("verde");
 		colori.add("rosso");
@@ -93,7 +100,8 @@ public class PopolamentoDatabase {
 		colori.add("ciano");
 		return colori;
 	}
-	public static List<String>  creaTessuti() {
+
+	public static List<String> creaTessuti() {
 		tessuti.clear();
 		tessuti.add("lana");
 		tessuti.add("cotone");
@@ -107,41 +115,41 @@ public class PopolamentoDatabase {
 		tessuti.add("lana");
 		return tessuti;
 	}
-	
-	public static List<Utente>  creaUtenti() {
+
+	public static List<Utente> creaUtenti() {
 		utenti.clear();
 		creaCognomi();
 		creaMail();
 		creaPassword();
 		creaResidenza();
 		creaNomi();
-		for(int i=0 ; i<10 ; i++) {
-			Utente u=new Utente();
+		for (int i = 0; i < 10; i++) {
+			Utente u = new Utente();
 			u.setCognome(cognomi.get(i));
 			u.setNome(nomi.get(i));
 			u.setMail(mail.get(i));
-			u.setPassword(password.get(i));
+			u.setPasswordUtente(password.get(i));
 			u.setResidenza(residenza.get(i));
 			utenti.add(u);
 		}
 		return utenti;
 	}
-	public static List<Vestito>  creaVestiti() {
+
+	public static List<Vestito> creaVestiti() {
 		vestiti.clear();
 		creaColori();
 		creaTessuti();
-		for(int i=0 ; i<10 ; i++) {
-			Vestito v=new Vestito();
+		for (int i = 0; i < 10; i++) {
+			Vestito v = new Vestito();
 			v.setColore(colori.get(i));
 			v.setTessuto(tessuti.get(i));
-			if((i+2)%2==0) {
+			if ((i + 2) % 2 == 0)
 				v.setDisponibile(true);
-			}else {
+			else
 				v.setDisponibile(false);
-			}
-			
 			vestiti.add(v);
 		}
+
 		return vestiti;
 	}
 }

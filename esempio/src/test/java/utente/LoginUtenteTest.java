@@ -10,7 +10,7 @@ public class LoginUtenteTest {
 	public void test() {
 		Utente u = new Utente();
 		u.setMail("test");
-		u.setPassword("test");
+		u.setPasswordUtente("test");
 		UtenteManager.loginUtente(u);
 	}
 }

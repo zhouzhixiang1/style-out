@@ -12,7 +12,7 @@ public class CreaUtenteDiTest {
 		u.setCognome("rossi");
 		u.setNome("mario");
 		u.setMail("mario_rossi@gmail.com");
-		u.setPassword("pw");
+		u.setPasswordUtente("pw");
 		u.setResidenza("milano");
 		return u;
 	}
@@ -21,7 +21,7 @@ public class CreaUtenteDiTest {
 		u.setCognome("adminName");
 		u.setNome("adminSurname");
 		u.setMail("admin@gmail.com");
-		u.setPassword("pw");
+		u.setPasswordUtente("pw");
 		u.setResidenza("roma");
 		return u;
 	}

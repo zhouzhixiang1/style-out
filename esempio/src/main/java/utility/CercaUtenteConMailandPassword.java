@@ -12,7 +12,7 @@ public class CercaUtenteConMailandPassword {
 		EntityManager em = NuovoEntityManager.creaEm();
 		Query q = em.createNamedQuery("Utente.FindByMailAndPassword",Utente.class)
 				.setParameter("mail",u.getMail())
-				.setParameter("password",u.getPassword());
+				.setParameter("password",u.getPasswordUtente());
 		return q.getResultList();
 	}
 
