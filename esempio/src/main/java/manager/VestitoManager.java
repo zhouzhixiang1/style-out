@@ -22,10 +22,9 @@ public class VestitoManager {
 			return false;
 	}
 
-	public static List<Vestito> elencoVestiti(Utente u) {
+	public static List<Vestito> elencoVestiti() {
 		EntityManager em = NuovoEntityManager.creaEm();
-		Query q = em.createNamedQuery("Vestito.ElencoVestiti_daId",Vestito.class);
-		q.setParameter("idUtente", u.getIdUtente());
+		Query q = em.createNamedQuery("Vestito.ElencoVestiti_tutti",Vestito.class);
 		return q.getResultList();
 	}
 	
