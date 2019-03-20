@@ -16,7 +16,7 @@ public class InserisciUtenteTest {
 	}
 	@Test
 	public void inserisciAdmin() {
-		//deef
+		//deefffffffff
 		Utente u = CreaUtenteDiTest.creaAdmin();
 		UtenteManager.aggiungiUtente(u);
 	}
