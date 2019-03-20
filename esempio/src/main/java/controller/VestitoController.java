@@ -2,6 +2,9 @@ package controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
+import org.springframework.http.client.support.HttpAccessor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -39,8 +42,10 @@ public class VestitoController {
 		return mv;
 	}
 	@RequestMapping(value="/elencoVestiti", method=RequestMethod.GET)
-	public @ResponseBody List<Vestito> elencoVestiti() { // il nome del metodo è irrilevante
-		List<Vestito> elencoVestiti = VestitoManager.elencoVestiti();
+	public @ResponseBody List<Vestito> elencoVestiti(HttpSession sessione) { 
+		Utente u = (Utente) sessione.getAttribute("utenteLoggato");
+		List<Vestito> elencoVestiti = VestitoManager.elencoVestiti(u);
+
 		return elencoVestiti;
 	}
 }

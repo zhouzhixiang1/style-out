@@ -5,8 +5,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import model.Utente;
-
 @Controller
 public class HomeController {
 	@RequestMapping(value="/registrazione", method=RequestMethod.GET)
