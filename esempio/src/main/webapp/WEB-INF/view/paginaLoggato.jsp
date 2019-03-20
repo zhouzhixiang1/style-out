@@ -110,8 +110,8 @@
 	   		residenza : <mark>${ utenteLoggato.residenza }</mark>
 	   		<br><br>
 	   		mail : <mark>${ utenteLoggato.mail }</mark>
-	   		<br><br>
-	   		password : <mark>${ utenteLoggato.passwordUtente }</mark>
+<!-- 	   		<br><br> -->
+	   		<!-- password : <mark>${ utenteLoggato.passwordUtente }</mark> -->
 	   		<br><br>
 	   		nome : <mark>${ utenteLoggato.nome }</mark>
 	   		<br><br>

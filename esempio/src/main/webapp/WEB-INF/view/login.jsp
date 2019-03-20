@@ -17,12 +17,7 @@
 	    <span class="navbar-toggler-icon"></span>
 	  </button>
 	  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-	    <ul class="navbar-nav">
-	 
-	      <li class="nav-item">
-	        <a class="nav-link" href="registrazione">Registrazione</a>
-	      </li>
-	     </ul>
+
 	      <c:choose>
 		    <c:when test="${ utenteLoggato != null}">
 		    

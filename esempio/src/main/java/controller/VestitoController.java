@@ -13,18 +13,21 @@ import manager.UtenteManager;
 import manager.VestitoManager;
 import model.Utente;
 import model.Vestito;
+import utility.CercaDaId;
 
 @Controller
 public class VestitoController {
 	
 	@RequestMapping(value="/aggiungiVestito", method=RequestMethod.POST)
-	public ModelAndView aggiungiVestito(@RequestParam(value = "disponibilita", required = false) String disponibilita,String coloreVestito , String tessutoVestito) { // il nome del metodo è irrilevante
+	public ModelAndView aggiungiVestito(@RequestParam(value = "disponibilita", required = false) String disponibilita,String coloreVestito , String tessutoVestito,int idUtente) { // il nome del metodo è irrilevante
 		Vestito v = new Vestito();
 		Utente u = new Utente();
+		Utente uTrovato = new Utente();
+		u.setIdUtente(idUtente);
+		uTrovato = CercaDaId.cerca(u);
 		v.setColore(coloreVestito);
 		v.setTessuto(tessutoVestito);
-		u.setIdUtente(100);
-		v.setUtente(u);
+		v.setUtente(uTrovato);
 		Boolean esito;
 		if(disponibilita==null) {
 			v.setDisponibile(false);
