@@ -7,6 +7,7 @@ import javax.persistence.Query;
 
 import model.Utente;
 import model.Vestito;
+import utility.CercaDaId;
 import utility.NuovoEntityManager;
 
 public class VestitoManager {
@@ -22,9 +23,11 @@ public class VestitoManager {
 			return false;
 	}
 
-	public static List<Vestito> elencoVestiti() {
+	public static List<Vestito> elencoVestiti(int id) {
 		EntityManager em = NuovoEntityManager.creaEm();
-		Query q = em.createNamedQuery("Vestito.ElencoVestiti_tutti",Vestito.class);
+		Utente u = CercaDaId.cercaDaIdSpecifico(id);
+		Query q = em.createNamedQuery("Vestito.ElencoVestiti_daId",Vestito.class)
+				.setParameter("utente", u);
 		return q.getResultList();
 	}
 	

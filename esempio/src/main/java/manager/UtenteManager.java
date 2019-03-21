@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import model.Utente;
+import model.Vestito;
 import utility.CercaDaId;
 import utility.CercaUtenteConMailandPassword;
 import utility.NuovoEntityManager;
@@ -37,8 +38,7 @@ public class UtenteManager {
 	}
 	public static List<Utente> elencoUtenti() {
 		EntityManager em = NuovoEntityManager.creaEm();
-		// uso una query JPQL
-		return em.createQuery("select u from Utente u", Utente.class)
-				.getResultList();
+		Query q = em.createNamedQuery("Utente.tutti",Utente.class);
+		return q.getResultList();
 	}
 }

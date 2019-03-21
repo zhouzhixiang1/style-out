@@ -25,14 +25,19 @@
 	      </li>
 	      <li class="nav-item">
 	      <c:choose>
-	      	<c:when test="${ utenteLoggato == null}">
-	      		<a class="nav-link" href="registrazione">Registrazione</a>
-	      	</c:when>
-	      	<c:when test="${ utenteLoggato.mail == 'simo@simo'}">
-	      		<span style="color: blue;">admin</span>
+	  
+	      	<c:when test="${ utenteLoggato.mail == 'admin@gmail.com'}">
+	      		
+	      				<span style="color: blue;">admin</span>
+	      	
+	      		
 	      	</c:when>
 	      	<c:otherwise>
-	      		user
+	      	
+	      		
+	      				user
+	      		
+	      		
 	      	</c:otherwise>
 	      </c:choose>
 	        
@@ -43,18 +48,27 @@
 		        <ul class="navbar-nav" style="position: absolute; left: 40%;">
 						
 					<c:choose>
-						<c:when test="${ utenteLoggato.mail == 'simo@simo'}">
+						<c:when test="${ utenteLoggato.mail == 'admin@gmail.com'}">
 						  <li class="nav-item dropdown">
 					        <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					          testa web-app
 					        </a>
 						        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						          	<a class="dropdown-item" href="inserimentoVestito">inserimento Vestito</a>
+						          	<a class="dropdown-item" href="stampaVestiti">elenco Vestito</a>
 						       		<div class="dropdown-divider"></div>
 					        	</div>
 					      </li>
+					      							<li class="nav-item">
+			
+										 <input type="hidden" name="utente" id="utente" value="${ utenteLoggato.idUtente }"> 
+									<a class="nav-link" href="#" style="padding: 0px;">
+										<button type="submit" style="margin-left:25px; padding-top: 7px; padding-bottom: 7px; height: 100%;" class="btn btn-dark" id="btnAggiorna" >AGGIORNA</button>
+									</a>
+						
+								
+							</li>
 							<li class="nav-item">
-								<a class="nav-link"  href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">controllo Utenza</a>
+								<a class="nav-link"  href="stampaUtenti"  role="button"  aria-haspopup="true" aria-expanded="false">controllo Utenza</a>
 					 		</li>
 						</c:when>
 						<c:otherwise>
@@ -69,9 +83,13 @@
 								</div>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="#" style="padding: 0px;">
-									<button style="margin-left:25px; padding-top: 7px; padding-bottom: 7px; height: 100%;" class="btn btn-dark" id="btnAggiorna" >AGGIORNA</button>
-								</a>
+								
+										 <input type="hidden" name="utente" id="utente" value="${ utenteLoggato.idUtente }"> 
+									<a class="nav-link" href="#" style="padding: 0px;">
+										<button type="submit" style="margin-left:25px; padding-top: 7px; padding-bottom: 7px; height: 100%;" class="btn btn-dark" id="btnAggiorna" >AGGIORNA</button>
+									</a>
+						
+								
 							</li>
 						</c:otherwise>
 					</c:choose>	   
@@ -112,10 +130,12 @@
 				  <tbody id="tabella">
 					</tbody>
 				</table>
+				<span id="prova"></span>
 	    	</div>
 	    	<div class="col-sm">
 	    	</div>
 	  </div> 
+	  
 	</div>
 	
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -125,8 +145,10 @@
 $('#btnAggiorna').click(() => {
 	$.ajax({
 		url: 'elencoVestiti',
-		method: 'get',	
+		method: 'get',
+		data: {id: $('#utente').val()},
 	})
+
 	.done((vestiti) => {
 
 		vestiti.forEach((v) => {

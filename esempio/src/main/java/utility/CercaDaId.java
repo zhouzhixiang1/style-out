@@ -8,6 +8,11 @@ import javax.persistence.Query;
 import model.Utente;
 
 public class CercaDaId {
+	public static Utente cercaDaIdSpecifico(int id) {
+		EntityManager em = NuovoEntityManager.creaEm();
+		Utente uTrovato = em.find(Utente.class, id);
+		return uTrovato;
+	}
 	public static Utente cerca(Utente u) {
 		EntityManager em = NuovoEntityManager.creaEm();
 		Utente uTrovato = em.find(Utente.class, u.getIdUtente());

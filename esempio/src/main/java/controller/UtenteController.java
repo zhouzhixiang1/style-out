@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import org.hibernate.Session;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -51,15 +52,19 @@ public class UtenteController {
 		
 	}
 	@RequestMapping(value="/elencoUtenti", method=RequestMethod.GET)
-	public @ResponseBody List<Utente> elencoPersone() { // il nome del metodo è irrilevante
+	public @ResponseBody List<Utente> elencoUtenti() { // il nome del metodo è irrilevante
 		List<Utente> elencoUtenti = UtenteManager.elencoUtenti();
 		return elencoUtenti;
 	}
+
 	@RequestMapping(value="/logoutUtente", method=RequestMethod.GET)
 	public @ResponseBody ModelAndView logoutUtente(HttpSession sessione) {
 		sessione.removeAttribute("utenteLoggato");
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("login");
 		return mv;
+	}
+	public HttpSession getSession() {
+		return getSession();
 	}
 }

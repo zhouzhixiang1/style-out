@@ -41,9 +41,10 @@ public class VestitoController {
 		mv.setViewName("esito");
 		return mv;
 	}
+
 	@RequestMapping(value="/elencoVestiti", method=RequestMethod.GET)
-	public @ResponseBody List<Vestito> elencoVestiti() { // il nome del metodo è irrilevante
-		List<Vestito> elencoVestiti = VestitoManager.elencoVestiti();
+	public @ResponseBody List<Vestito> elencoVestiti(int id) { // il nome del metodo è irrilevante
+		List<Vestito> elencoVestiti = VestitoManager.elencoVestiti(id);
 		return elencoVestiti;
 	}
 }

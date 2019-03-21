@@ -25,9 +25,7 @@
 	      </li>
 	      <li class="nav-item">
 	      <c:choose>
-	      	<c:when test="${ utenteLoggato == null}">
-	      		<a class="nav-link" href="registrazione">Registrazione</a>
-	      	</c:when>
+
 	      	<c:when test="${ utenteLoggato.mail == 'admin@gmail.com'}">
 	      		<span style="color: blue;">admin</span>
 	      	</c:when>
@@ -49,12 +47,13 @@
 					          testa web-app
 					        </a>
 						        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						          	<a class="dropdown-item" href="inserimentoVestito">inserimento Vestito</a>
+						          							          	<a class="dropdown-item" href="stampaVestiti">elenco Vestito</a>
+
 						       		<div class="dropdown-divider"></div>
 					        	</div>
 					      </li>
 							<li class="nav-item">
-								<a class="nav-link"  href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">controllo Utenza</a>
+								<a class="nav-link"  href="stampaUtenti"role="button"  aria-haspopup="true" aria-expanded="false">controllo Utenza</a>
 					 		</li>
 						</c:when>
 						<c:otherwise>

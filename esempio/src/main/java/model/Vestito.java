@@ -9,8 +9,10 @@ import javax.persistence.ManyToOne;
 
 import org.hibernate.annotations.NamedQueries;
 import org.hibernate.annotations.NamedQuery;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 @NamedQueries({
-	@NamedQuery(name="Vestito.ElencoVestiti_daId", query="SELECT v FROM Vestito v WHERE v.utente =:idUtente"),
+	@NamedQuery(name="Vestito.ElencoVestiti_daId", query="SELECT v FROM Vestito v WHERE v.utente =:utente"),
 	@NamedQuery(name="Vestito.ElencoVestiti_tutti", query="SELECT v FROM Vestito v"),
 })
 @Entity
@@ -54,7 +56,9 @@ public class Vestito {
 	private String tessuto;
 	private boolean disponibile;
 	@ManyToOne
+
 	@JoinColumn(name="id_utente")
+	@JsonIgnore
 	private Utente utente;
 	
 

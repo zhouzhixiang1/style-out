@@ -12,8 +12,11 @@ import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.NamedQueries;
 import org.hibernate.annotations.NamedQuery;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 @NamedQueries({
 	@NamedQuery(name="Utente.FindByMailAndPassword", query="SELECT u FROM Utente u WHERE u.mail =:mail and u.passwordUtente =:password"),
+	@NamedQuery(name="Utente.tutti" , query="SELECT u FROM Utente u"),
 })
 @Entity
 public class Utente {
@@ -96,6 +99,7 @@ public class Utente {
 	private String passwordUtente;
 	
 	@OneToMany(mappedBy="utente",orphanRemoval = true,cascade=CascadeType.ALL)
+	@JsonIgnore
 	private List<Vestito> vestiti;
 	
 	
